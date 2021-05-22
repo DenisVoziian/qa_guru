@@ -24,7 +24,8 @@ public class ToolsQATests {
             yearBirth = "1992",
             monthBirth = "May",
             dayBirth = "30",
-            subjects = "QAA, Selenide",
+            firstSubjects = "Computer Science",
+            seconSubjects = "English",
             sportHobby = "Sports",
             readingHobby = "Reading",
             musicHobby = "Music",
@@ -92,7 +93,8 @@ public class ToolsQATests {
         yearBirthLink.selectOption(yearBirth);
         monthBirthLink.selectOption(monthBirth);
         dayBirthLink.click();
-        subjectsInput.setValue(subjects);
+        subjectsInput.setValue(firstSubjects).pressEnter();
+        subjectsInput.setValue(seconSubjects).pressEnter();
         sportHobbyCheckBox.click();
         readingHobbyCheckBox.click();
         musicHobbyCheckBox.click();
@@ -110,10 +112,10 @@ public class ToolsQATests {
         genderRow.shouldHave(text(gender));
         mobileRow.shouldHave(text(phoneNumber));
         dateOfBirthRow.shouldHave(text(dayBirth), text(monthBirth), text(yearBirth));
+        subjectsRow.shouldHave(text(firstSubjects), text(seconSubjects));
         hobbiesRow.shouldHave(text(sportHobby), text(readingHobby), text(musicHobby));
         pictureRow.shouldHave(text(pictureName));
         addressRow.shouldHave(text(currentAddress));
         stateAndCityRow.shouldHave(text(stateName), text(cityName));
-        subjectsRow.shouldHave(text(subjects));
     }
 }
