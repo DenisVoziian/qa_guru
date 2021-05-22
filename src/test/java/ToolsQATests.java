@@ -1,6 +1,7 @@
 import com.codeborne.selenide.Configuration;
 
 import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -73,8 +74,8 @@ public class ToolsQATests {
             addressRow = tableBody.find(byText("Address")).sibling(0),
             stateAndCityRow = tableBody.find(byText("State and City")).sibling(0);
 
-    @BeforeEach
-    public void setUp() {
+    @BeforeAll
+    static public void setUp() {
         Configuration.startMaximized = true;
     }
 
