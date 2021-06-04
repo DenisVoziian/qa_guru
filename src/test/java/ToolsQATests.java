@@ -2,7 +2,6 @@ import com.codeborne.selenide.Configuration;
 
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +16,7 @@ public class ToolsQATests {
     private String baseURL = "https://demoqa.com/";
 
     //student data
-    private String firstName = "Ivan",
+    static private String firstName = "Ivan",
             lastName = "Ivanov",
             email = "1212@mail.com",
             gender = "Male",
@@ -40,26 +39,26 @@ public class ToolsQATests {
 
     //form
     private SelenideElement studentForm = $("#userForm"),
-            firstNameInput = studentForm.$("#firstName"),
-            lastNameInput = studentForm.$("#lastName"),
-            userEmailInput = studentForm.$("#userEmail"),
+            firstNameInput = $("#firstName"),
+            lastNameInput = $("#lastName"),
+            userEmailInput = $("#userEmail"),
             genderRadioButton = studentForm.$(byValue(gender)).parent(),
-            phoneNumberInput = studentForm.$("#userNumber"),
-            dateOfBirthForm = studentForm.$("#dateOfBirth"),
-            dateOfBirthInput = dateOfBirthForm.$("#dateOfBirthInput"),
+            phoneNumberInput = $("#userNumber"),
+            dateOfBirthForm = $("#dateOfBirth"),
+            dateOfBirthInput = $("#dateOfBirthInput"),
             yearBirthLink = dateOfBirthForm.$(".react-datepicker__year-select"),
             monthBirthLink = dateOfBirthForm.$(".react-datepicker__month-select"),
             dayBirthLink = $$(".react-datepicker__day:not([class*=--outside])").findBy(text(dayBirth)),
-            subjectsInput = studentForm.$("#subjectsInput"),
-            hobbiesCheckBox = studentForm.$("#hobbiesWrapper"),
+            subjectsInput = $("#subjectsInput"),
+            hobbiesCheckBox = $("#hobbiesWrapper"),
             sportHobbyCheckBox = hobbiesCheckBox.find(byText("Sports")),
             readingHobbyCheckBox = hobbiesCheckBox.find(byText("Reading")),
             musicHobbyCheckBox = hobbiesCheckBox.find(byText("Music")),
-            uploadPictureButton = studentForm.$("#uploadPicture"),
-            currentAddressInput = studentForm.$("#currentAddress"),
-            stateInput = studentForm.$("#state").$("input"),
-            cityInput = studentForm.$("#city").$("input"),
-            submitButton = studentForm.$("#submit");
+            uploadPictureButton = $("#uploadPicture"),
+            currentAddressInput = $("#currentAddress"),
+            stateInput = $("#state").$("input"),
+            cityInput = $("#city").$("input"),
+            submitButton = $("#submit");
 
     //table
     private SelenideElement tableBody = $(".table-responsive").find("tbody"),
@@ -75,12 +74,12 @@ public class ToolsQATests {
             stateAndCityRow = tableBody.find(byText("State and City")).sibling(0);
 
     @BeforeAll
-    static public void setUp() {
+    public static void setUp() {
         Configuration.startMaximized = true;
     }
 
     @Test
-    public void practiceFormTest() {
+    protected void practiceFormTest() {
         logger.info("============== Open page =============");
         open(baseURL + "automation-practice-form/");
 
