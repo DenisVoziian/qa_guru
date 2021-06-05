@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
 public class ToolsQATests extends TestBase {
-    RegistrationPage registrationPage = new RegistrationPage();
+    private RegistrationPage registrationPage = new RegistrationPage();
 
-    Faker faker = new Faker();
+    private Faker faker = new Faker();
 
     //student data
     private String firstName = faker.name().firstName(),

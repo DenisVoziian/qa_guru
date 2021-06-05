@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-    String practiceFormPageUrl = "automation-practice-form/";
+    private static String practiceFormPageUrl = "automation-practice-form/";
 
     //form
     private SelenideElement firstNameInput = $("#firstName"),
