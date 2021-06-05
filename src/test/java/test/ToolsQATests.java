@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -25,7 +23,7 @@ public class ToolsQATests {
             monthBirth = "May",
             dayBirth = "30",
             firstSubjects = "Computer Science",
-            seconSubjects = "English",
+            secondSubjects = "English",
             sportHobby = "Sports",
             readingHobby = "Reading",
             musicHobby = "Music",
@@ -34,7 +32,6 @@ public class ToolsQATests {
             stateName = "Haryana",
             cityName = "Karnal";
 
-    private File file = new File("src/test/resources/" + pictureName);
     private Logger logger = LoggerFactory.getLogger(ToolsQATests.class);
 
     //form
@@ -42,7 +39,7 @@ public class ToolsQATests {
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
-            genderRadioButton = studentForm.$(byValue(gender)).parent(),
+            genderRadioButton = $("#genterWrapper").$(byValue(gender)).parent(),
             phoneNumberInput = $("#userNumber"),
             dateOfBirthForm = $("#dateOfBirth"),
             dateOfBirthInput = $("#dateOfBirthInput"),
@@ -79,7 +76,7 @@ public class ToolsQATests {
     }
 
     @Test
-    protected void practiceFormTest() {
+    void practiceFormTest() {
         logger.info("============== Open page =============");
         open(baseURL + "automation-practice-form/");
 
@@ -94,11 +91,11 @@ public class ToolsQATests {
         monthBirthLink.selectOption(monthBirth);
         dayBirthLink.click();
         subjectsInput.setValue(firstSubjects).pressEnter();
-        subjectsInput.setValue(seconSubjects).pressEnter();
+        subjectsInput.setValue(secondSubjects).pressEnter();
         sportHobbyCheckBox.click();
         readingHobbyCheckBox.click();
         musicHobbyCheckBox.click();
-        uploadPictureButton.uploadFile(file);
+        uploadPictureButton.uploadFromClasspath("img/" + pictureName);
         currentAddressInput.setValue(currentAddress);
         stateInput.setValue(stateName).pressEnter();
         cityInput.setValue(cityName).pressEnter();
@@ -112,7 +109,7 @@ public class ToolsQATests {
         genderRow.shouldHave(text(gender));
         mobileRow.shouldHave(text(phoneNumber));
         dateOfBirthRow.shouldHave(text(dayBirth), text(monthBirth), text(yearBirth));
-        subjectsRow.shouldHave(text(firstSubjects), text(seconSubjects));
+        subjectsRow.shouldHave(text(firstSubjects), text(secondSubjects));
         hobbiesRow.shouldHave(text(sportHobby), text(readingHobby), text(musicHobby));
         pictureRow.shouldHave(text(pictureName));
         addressRow.shouldHave(text(currentAddress));
