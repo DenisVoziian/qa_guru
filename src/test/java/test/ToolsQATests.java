@@ -34,21 +34,21 @@ public class ToolsQATests extends TestBase {
         registrationPage.openPracticeFormPage();
 
         logger.info("============== Fill in the form =============");
-        registrationPage.typeFirstName(firstName);
-        registrationPage.typeLastName(lastName);
-        registrationPage.typeUserEmail(email);
-        registrationPage.chooseGender(gender);
-        registrationPage.typePhoneNumber(phoneNumber);
-        registrationPage.chooseDateOfBirth(yearBirth, monthBirth, dayBirth);
-        registrationPage.typeSubjects(firstSubjects);
-        registrationPage.typeSubjects(secondSubjects);
-        registrationPage.chooseHobby(sportHobby);
-        registrationPage.chooseHobby(musicHobby);
-        registrationPage.chooseHobby(readingHobby);
-        registrationPage.uploadPicture(pictureName);
-        registrationPage.typeCurrentAddress(currentAddress);
-        registrationPage.chooseStateName(stateName);
-        registrationPage.chooseCityName(cityName);
+        registrationPage.typeFirstName(firstName)
+                .typeLastName(lastName)
+                .typeUserEmail(email)
+                .chooseGender(gender)
+                .typePhoneNumber(phoneNumber)
+                .chooseDateOfBirth(yearBirth, monthBirth, dayBirth)
+                .typeSubjects(firstSubjects)
+                .typeSubjects(secondSubjects)
+                .chooseHobby(sportHobby)
+                .chooseHobby(musicHobby)
+                .chooseHobby(readingHobby)
+                .uploadPicture(pictureName)
+                .typeCurrentAddress(currentAddress)
+                .chooseStateName(stateName)
+                .chooseCityName(cityName);
 
         logger.info("============== Click 'Submit' button =============");
         registrationPage.clickSubmitButton();

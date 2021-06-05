@@ -46,66 +46,80 @@ public class RegistrationPage {
             stateAndCityRow = tableBody.find(byText("State and City")).sibling(0);
 
 
-    public void openPracticeFormPage() {
+    public RegistrationPage openPracticeFormPage() {
         open(practiceFormPageUrl);
+        return this;
     }
 
-    public void typeFirstName(String firstName) {
+    public RegistrationPage typeFirstName(String firstName) {
         firstNameInput.setValue(firstName);
+        return this;
     }
 
-    public void typeLastName(String lastName) {
+    public RegistrationPage typeLastName(String lastName) {
         lastNameInput.setValue(lastName);
+        return this;
     }
 
-    public void typeUserEmail(String userEmail) {
+    public RegistrationPage typeUserEmail(String userEmail) {
         userEmailInput.setValue(userEmail);
+        return this;
     }
 
-    public void chooseGender(String gender) {
+    public RegistrationPage chooseGender(String gender) {
         genderRadioButton(gender).click();
+        return this;
     }
 
-    public void typePhoneNumber(String phoneNumber) {
+    public RegistrationPage typePhoneNumber(String phoneNumber) {
         phoneNumberInput.setValue(phoneNumber);
+        return this;
     }
 
-    public void chooseDateOfBirth(String yearBirth, String monthBirth, String dayBirth) {
+    public RegistrationPage chooseDateOfBirth(String yearBirth, String monthBirth, String dayBirth) {
         new CalendarComponents().chooseDateOfBirth(yearBirth, monthBirth, dayBirth);
+        return this;
     }
 
-    public void typeSubjects(String subjects) {
+    public RegistrationPage typeSubjects(String subjects) {
         subjectsInput.setValue(subjects).pressEnter();
+        return this;
     }
 
-    public void chooseHobby(String hobby) {
+    public RegistrationPage chooseHobby(String hobby) {
         hobbyCheckBox(hobby).click();
+        return this;
     }
 
-    public void uploadPicture(String pictureName) {
+    public RegistrationPage uploadPicture(String pictureName) {
         uploadPictureButton.uploadFromClasspath("img/" + pictureName);
+        return this;
     }
 
-    public void typeCurrentAddress(String currentAddress) {
+    public RegistrationPage typeCurrentAddress(String currentAddress) {
         currentAddressInput.setValue(currentAddress);
+        return this;
     }
 
-    public void chooseStateName(String stateName) {
+    public RegistrationPage chooseStateName(String stateName) {
         stateInput.setValue(stateName).pressEnter();
+        return this;
     }
 
-    public void chooseCityName(String cityName) {
+    public RegistrationPage chooseCityName(String cityName) {
         cityInput.setValue(cityName).pressEnter();
+        return this;
     }
 
-    public void clickSubmitButton() {
+    public RegistrationPage clickSubmitButton() {
         submitButton.click();
+        return this;
     }
 
-    public void checkTableWithData(String firstName, String lastName, String email, String gender, String phoneNumber,
-                                   String dayBirth, String monthBirth, String yearBirth, String firstSubjects,
-                                   String secondSubjects, String sportHobby, String readingHobby, String musicHobby,
-                                   String pictureName, String currentAddress, String stateName, String cityName) {
+    public RegistrationPage checkTableWithData(String firstName, String lastName, String email, String gender, String phoneNumber,
+                                               String dayBirth, String monthBirth, String yearBirth, String firstSubjects,
+                                               String secondSubjects, String sportHobby, String readingHobby, String musicHobby,
+                                               String pictureName, String currentAddress, String stateName, String cityName) {
         studentNameRow.shouldHave(text(firstName), text(lastName));
         studentEmailRow.shouldHave(text(email));
         genderRow.shouldHave(text(gender));
@@ -116,6 +130,7 @@ public class RegistrationPage {
         pictureRow.shouldHave(text(pictureName));
         addressRow.shouldHave(text(currentAddress));
         stateAndCityRow.shouldHave(text(stateName), text(cityName));
+        return this;
     }
 }
 

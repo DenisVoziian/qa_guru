@@ -17,10 +17,11 @@ public class CalendarComponents {
         return $$(".react-datepicker__day:not([class*=--outside])").findBy(text(dayBirth));
     }
 
-    public void chooseDateOfBirth(String yearBirth, String monthBirth, String dayBirth) {
+    public CalendarComponents chooseDateOfBirth(String yearBirth, String monthBirth, String dayBirth) {
         dateOfBirthInput.click();
         yearBirthLink.selectOption(yearBirth);
         monthBirthLink.selectOption(monthBirth);
         dayBirthLink(dayBirth).click();
+        return this;
     }
 }
