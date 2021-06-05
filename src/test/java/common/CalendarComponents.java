@@ -13,7 +13,7 @@ public class CalendarComponents {
             yearBirthLink = dateOfBirthForm.$(".react-datepicker__year-select"),
             monthBirthLink = dateOfBirthForm.$(".react-datepicker__month-select");
 
-    public SelenideElement dayBirthLink(String dayBirth) {
+    private SelenideElement dayBirthLink(String dayBirth) {
         return $$(".react-datepicker__day:not([class*=--outside])").findBy(text(dayBirth));
     }
 
